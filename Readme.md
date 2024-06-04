@@ -55,11 +55,6 @@ To execute your NUKE build locally, you can follow these steps:
    nuke
    ```
 
-   Create installer:
-   ```powershell
-   nuke createinstaller
-   ```
-
    Create installer and bundle:
    ```powershell
    nuke createinstaller createbundle
@@ -98,7 +93,3 @@ To execute your NUKE build on GitHub, you can follow these steps:
 | Views      | Classes that are responsible for defining the structure, layout and appearance of what the user sees on the screen. More [details](https://learn.microsoft.com/en-us/dotnet/architecture/maui/mvvm). |
 | Resources  | Images, sounds, localisation files, etc.                                                                                                                                                             |
 | Utils      | Utilities, extensions, helpers used across the application                                                                                                                                           |
-
-### Learn More
-
-* You can explore more in the [RevitTemplates wiki](https://github.com/Nice3point/RevitTemplates/wiki) page.
