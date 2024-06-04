@@ -14,12 +14,12 @@
 
         Bundles =
         [
-            Solution.RevitAddIn
+            Solution.RevitAddinManager
         ];
 
         InstallersMap = new()
         {
-            { Solution.Installer, Solution.RevitAddIn }
+            { Solution.Installer, Solution.RevitAddinManager }
         };
     }
 }
