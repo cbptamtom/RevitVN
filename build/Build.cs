@@ -3,6 +3,7 @@ using Nuke.Common.ProjectModel;
 
 sealed partial class Build : NukeBuild
 {
+    // a
     string[] Configurations;
     Project[] Bundles;
     Dictionary<Project, Project> InstallersMap;
