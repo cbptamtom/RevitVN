@@ -1,4 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace RevitAddinManager;
 
@@ -8,7 +9,7 @@ namespace RevitAddinManager;
 public static class Host
 {
     private static IServiceProvider _serviceProvider;
-
+    private static IHost _host;
     /// <summary>
     ///     Starts the host and configures the application's services
     /// </summary>
