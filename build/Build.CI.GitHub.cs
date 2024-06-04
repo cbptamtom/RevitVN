@@ -13,6 +13,7 @@ sealed partial class Build
         .OnlyWhenStatic(() => IsServerBuild && GitRepository.IsOnMainOrMasterBranch())
         .Executes(async () =>
         {
+            var token = Environment.GetEnvironmentVariable("GITHUB_TOKEN");
             GitHubTasks.GitHubClient = new GitHubClient(new ProductHeaderValue(Solution.Name))
             {
                 Credentials = new Credentials(GitHubToken)
