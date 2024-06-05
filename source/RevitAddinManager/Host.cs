@@ -1,5 +1,9 @@
+using System.IO;
+using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using RevitAddinManager.Config;
 
 namespace RevitAddinManager;
 
@@ -8,25 +12,59 @@ namespace RevitAddinManager;
 /// </summary>
 public static class Host
 {
-    private static IServiceProvider _serviceProvider;
+    // private static IServiceProvider _serviceProvider;
     private static IHost _host;
+
     /// <summary>
     ///     Starts the host and configures the application's services
     /// </summary>
     public static void Start()
     {
-        var services = new ServiceCollection();
+        var builder = new HostApplicationBuilder(new HostApplicationBuilderSettings
+        {
+            ContentRootPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly()!.Location),
+            DisableDefaults = true
+        });
+        
+        //Logging
+        builder.Logging.ClearProviders();
+        builder.Logging.AddSerilogConfiguration();
+        
+        
+        // Configuration
+        builder.Services.AddSerializerOptions();
+        
+        // Services
+        builder.Services.AddTransient<Module1.Commands.ShowWindowComponent>();
+        builder.Services.AddTransient<Module2.Commands.ShowWindowComponent>();
+        builder.Services.AddTransient<Module3.Commands.ShowWindowComponent>(); 
+        
+        //Module1
+        builder.Services.AddTransient<Module1.Views.Module1View>();
+        builder.Services.AddTransient<Module1.ViewModels.Module1ViewModel>();
+        //Module2
+        builder.Services.AddTransient<Module2.Views.Module2View>();
+        builder.Services.AddTransient<Module2.ViewModels.Module2ViewModel>();
 
-        _serviceProvider = services.BuildServiceProvider();
+        //Module3
+        builder.Services.AddTransient<Module3.Views.Module3View>();
+        builder.Services.AddTransient<Module3.ViewModels.Module3ViewModel>();
+
+
+        _host = builder.Build();
+        _host.Start();
+    }
+    
+    /// <summary>
+    ///     Stops the host
+    /// </summary>
+    public static void Stop()
+    {
+        _host.StopAsync();
     }
 
-    /// <summary>
-    ///     Gets a service of the specified type
-    /// </summary>
-    /// <typeparam name="T">The type of service object to get</typeparam>
-    /// <returns>A service object of type T or null if there is no such service</returns>
-    public static T GetService<T>() where T : class
+public static T GetService<T>() where T : class
     {
-        return _serviceProvider.GetService(typeof(T)) as T;
+        return _host.Services.GetService(typeof(T)) as T;
     }
 }
