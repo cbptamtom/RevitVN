@@ -1,4 +1,5 @@
-﻿using Module1.Views;
+﻿using System.Windows;
+using Module1.Views;
 
 namespace Module1.Commands;
 
@@ -9,6 +10,7 @@ public class ShowWindowComponent(Module1View view)
 {
     public void Execute()
     {
+        MessageBox.Show("Test");
         view.ShowDialog();
     }
 }
