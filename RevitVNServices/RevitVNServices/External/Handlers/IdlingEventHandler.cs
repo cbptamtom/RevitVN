@@ -13,7 +13,7 @@ namespace RevitVNServices.External.Handlers;
 ///     Suitable for cases where you need to call code when Revit receives focus or to open a dialog after loading a family into the project
 /// </remarks>
 [PublicAPI]
-public class IdlingEventHandler : Nice3point.Revit.Toolkit.External.ExternalEventHandler
+public class IdlingEventHandler : ExternalEventHandler
 {
     private Action<UIApplication> _action;
 

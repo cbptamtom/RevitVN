@@ -7,7 +7,7 @@ namespace RevitVNServices.External.Handlers;
 ///     Handler, to provide access to change the Revit document with the ability to queue calls to Raise methods
 /// </summary>
 [PublicAPI]
-public class ActionEventHandler : Nice3point.Revit.Toolkit.External.ExternalEventHandler
+public class ActionEventHandler : ExternalEventHandler
 {
     private Action<UIApplication> _action;
 

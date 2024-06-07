@@ -8,7 +8,7 @@ namespace RevitVNServices.External.Handlers;
 /// </summary>
 /// <remarks>Suitable for cases where it is needed to await the completion of an external event</remarks>
 [PublicAPI]
-public sealed class AsyncEventHandler : Nice3point.Revit.Toolkit.External.ExternalEventHandler
+public sealed class AsyncEventHandler : ExternalEventHandler
 {
     private Action<UIApplication> _action;
     private TaskCompletionSource<bool> _resultTask;
