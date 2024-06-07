@@ -1,16 +1,16 @@
-name: Workflow
+name: CI/CD Workflow
 
 on:
   push:
     branches:
-      - '**'
+      - main
   pull_request:
     branches:
-      - '!main'
+      - '*'
 
 jobs:
   windows:
-    name: windows-2022
+    name: Build and Publish
     runs-on: windows-2022
     steps:
       - name: Checkout
