@@ -4,7 +4,7 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
 
 sealed partial class Build
 {
-    Target Compile => _ => _
+    Target Compile => d => d
         .DependsOn(Clean)
         .Executes(() =>
         {
