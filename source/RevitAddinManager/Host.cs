@@ -3,6 +3,12 @@ using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Module1.ViewModels;
+using Module1.Views;
+using Module2.ViewModels;
+using Module2.Views;
+using Module3.ViewModels;
+using Module3.Views;
 using RevitAddinManager.Config;
 
 namespace RevitAddinManager;
@@ -40,15 +46,15 @@ public static class Host
         builder.Services.AddTransient<Module3.Commands.ShowWindowComponent>(); 
         
         //Module1
-        builder.Services.AddTransient<Module1.Views.Module1View>();
-        builder.Services.AddTransient<Module1.ViewModels.Module1ViewModel>();
+        builder.Services.AddTransient<Module1View>();
+        builder.Services.AddTransient<Module1ViewModel>();
         //Module2
-        builder.Services.AddTransient<Module2.Views.Module2View>();
-        builder.Services.AddTransient<Module2.ViewModels.Module2ViewModel>();
+        builder.Services.AddTransient<Module2View>();
+        builder.Services.AddTransient<Module2ViewModel>();
 
         //Module3
-        builder.Services.AddTransient<Module3.Views.Module3View>();
-        builder.Services.AddTransient<Module3.ViewModels.Module3ViewModel>();
+        builder.Services.AddTransient<Module3View>();
+        builder.Services.AddTransient<Module3ViewModel>();
 
 
         _host = builder.Build();
