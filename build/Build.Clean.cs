@@ -3,7 +3,7 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
 
 sealed partial class Build
 {
-    Target Clean => _ => _
+    Target Clean => d => d
         .OnlyWhenStatic(() => IsLocalBuild)
         .Executes(() =>
         {
