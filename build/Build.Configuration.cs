@@ -2,7 +2,7 @@
 
 sealed partial class Build
 {
-    const string Version = "1.0.2";
+    const string Version = "1.0.3";
     readonly AbsolutePath ArtifactsDirectory = RootDirectory / "output";
     readonly AbsolutePath ChangeLogPath = RootDirectory / "Changelog.md";
 

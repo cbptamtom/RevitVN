@@ -47,4 +47,8 @@
         <Folder Include="Models"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\..\RevitVNServices\RevitVNServices\RevitVNServices.csproj" />
+    </ItemGroup>
+
 </Project>
